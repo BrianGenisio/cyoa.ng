@@ -7,14 +7,20 @@ body {
   margin: 0; 
   padding: 0;
   width: 100%;
+  background: #091018 url('images/bg.png') fixed repeat-x;
+}
+
+header {
+  background-image: url('images/nav_bg.png');
+  background-repeat: repeat-x;
 }
 
 h1 {
-  margin: 0; 
+  margin: 0 auto;
   padding: 0;
   text-indent: -1000px;
-  width: 400px;
-  height: 140px;
+  width: 80%;
+  height: 60px;
 }
 
 .content {
@@ -120,7 +126,6 @@ h1 {
  *
  */
 body {
-  background-color: #182128;
   color: #FEE;
 }
 
@@ -139,12 +144,17 @@ body {
  *
  */
 
+body {
+  background: #091018 url('images/bg.png') fixed repeat-x;
+}
+
 a {
   cursor: pointer;
 }
 
 h1 {
-  background-image: url("images/header_left.png");
+  background-image: url("images/cyOverflow.png");
+  background-repeat: no-repeat;
 }
 
 .voteup {
