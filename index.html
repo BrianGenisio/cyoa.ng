@@ -24,32 +24,21 @@
 	        </div>
 	        <div id="newQuestionView" ng-show="user.name" ng-controller="AskAQuestionCtrl">
 	            <label for="newQuestion" id="questionPrompt">{{user.name}} wants to know...</label>
-	            <textarea cols=20 rows=2 id="newQuestion" name="newQuestion"></textarea>
-	            <a id="addItem" class="button">Ask now!</a>
+	            <textarea cols=20 rows=2 id="newQuestion" name="newQuestion" ng-model="newQuestionText"></textarea>
+	            <a id="addItem" class="button" ng-click="add(newQuestionText)">Ask now!</a>
 	        </div>
 	    </section>
-	    <ul id="questions">
-	        <li class="question">
+	    <ul id="questions" ng-controller="QuestionListCtrl">
+	        <li class="question" ng-repeat="question in questions">
 	          <div class="voteStatus">
 	              <a class="vote voteup"></a>
 	              <div class="votecount">1</div>
 	              <a class="vote votedown selected"></a>
 	          </div>
 	          <div class="questionText">
-	              <p>What is your quest?</p>
-	              <div class="questionAuthor">From: Bridge Keeper</div>
+	              <p>{{question.text}}</p>
+	              <div class="questionAuthor">From: {{question.userName}}</div>
 	          </div>
-	      </li>
-	      <li class="question">
-	        <div class="voteStatus">
-	            <a class="vote voteup"></a>
-	            <div class="votecount">1</div>
-	            <a class="vote votedown selected"></a>
-	        </div>
-	        <div class="questionText">
-	            <p>What is your favorite color?</p>
-	            <div class="questionAuthor">From: Bridge Keeper</div>
-	        </div>
 	      </li>
 	    </ul>
 	</div>
