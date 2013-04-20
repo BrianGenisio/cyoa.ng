@@ -1,15 +1,14 @@
-window.App.controller('AskAQuestionCtrl', function($scope, User, Questions) {
-	$scope.user = User;
-	$scope.questions = Questions;
+window.App.controller('AskAQuestionCtrl', function($scope, user, questions, Question) {
+	$scope.user = user;
+	$scope.questions = questions;
 
 	$scope.add = function(questionText) {
-		var newQuestion = {
+		var newQuestion = new Question({
 			text: questionText,
-			userName: User.name,
-			votes: []
-		};
+			userName: user.name
+		});
 
-		Questions.push(newQuestion);
+		$scope.questions.push(newQuestion);
 		$scope.newQuestionText = '';
 	}
 });

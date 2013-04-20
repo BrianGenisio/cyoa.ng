@@ -32,7 +32,7 @@
 	        <li class="question" ng-repeat="question in questions" ng-controller="QuestionCtrl">
 	          <div class="voteStatus">
 	              <a class="vote voteup" ng-click="upVote()"></a>
-	              <div class="votecount">{{voteTally()}}</div>
+	              <div class="votecount">{{question.voteTally()}}</div>
 	              <a class="vote votedown selected" ng-click="downVote()"></a>
 	          </div>
 	          <div class="questionText">
@@ -45,6 +45,7 @@
 
   <script type="text/javascript" src="scripts/app.js"></script>
   <script type="text/javascript" src="scripts/models/user.js"></script>
+  <script type="text/javascript" src="scripts/models/question.js"></script>
   <script type="text/javascript" src="scripts/models/questions.js"></script>
   <script type="text/javascript" src="scripts/controllers/login.js"></script>
   <script type="text/javascript" src="scripts/controllers/ask-a-question.js"></script>

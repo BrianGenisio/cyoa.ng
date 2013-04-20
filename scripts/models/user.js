@@ -1,4 +1,4 @@
-window.App.factory('User', function() {
+window.App.factory('user', function() {
 	return {
 		name: '',
 		login: function(userName) {

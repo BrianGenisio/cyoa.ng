@@ -1,3 +1,3 @@
-window.App.factory('Questions', function() {
+window.App.factory('questions', function() {
 	return [];
 });
