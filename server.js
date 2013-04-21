@@ -37,6 +37,8 @@ io.sockets.on('connection', function(socket) {
   	if(existingQuestion) {
   		_.extend(existingQuestion, questionData);
   	}
+
+  	socket.broadcast.emit('updateQuestion',JSON.stringify(existingQuestion)); 
   });
 });
 

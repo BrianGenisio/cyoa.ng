@@ -18,6 +18,17 @@ window.App.factory('questionSync', function($rootScope, questions, Question) {
 		$rootScope.$apply();
 	});
 
+	socket.on('updateQuestion', function(questionJsonData) {
+    	var questionData = JSON.parse(questionJsonData);
+    	var updatedQuestion = _(questions).find( function(question) {
+    		return question.id == questionData.id;
+    	});
+    
+    	angular.extend(updatedQuestion, questionData);
+
+    	$rootScope.$apply();
+    });
+
 	return {
 		questionAdded: function(question) {
 			socket.emit('addQuestion', angular.toJson(question), function(updatedQuestionJson) {
