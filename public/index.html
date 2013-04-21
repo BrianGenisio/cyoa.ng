@@ -31,9 +31,9 @@
 	    <ul id="questions" ng-controller="QuestionListCtrl">
 	        <li class="question" ng-repeat="question in questions" ng-controller="QuestionCtrl">
 	          <div class="voteStatus">
-	              <a class="vote voteup" ng-click="upVote()"></a>
+	              <a class="vote voteup" ng-click="upVote()" ng-class="{selected: userVotedUp()}"></a>
 	              <div class="votecount">{{question.voteTally()}}</div>
-	              <a class="vote votedown selected" ng-click="downVote()"></a>
+	              <a class="vote votedown" ng-click="downVote()" ng-class="{selected: userVotedDown()}"></a>
 	          </div>
 	          <div class="questionText">
 	              <p>{{question.text}}</p>
