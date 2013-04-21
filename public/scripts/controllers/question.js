@@ -1,7 +1,8 @@
-window.App.controller('QuestionCtrl', function($scope, user) {
+window.App.controller('QuestionCtrl', function($scope, user, questionSync) {
 
 	var setVote = function(voteType) {
 		$scope.question.vote(user.name, voteType);
+		questionSync.questionUpdated($scope.question);
 	};
 
 	$scope.upVote = function() { setVote("up"); };

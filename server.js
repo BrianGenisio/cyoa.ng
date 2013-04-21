@@ -1,4 +1,5 @@
 var uuid = require('node-uuid');
+var _ = require('underscore');
 var connect = require('connect');
  
 var app = connect()
@@ -25,6 +26,17 @@ io.sockets.on('connection', function(socket) {
       var updatedQuestionJsonData = JSON.stringify(questionData);
       callback(updatedQuestionJsonData);
       socket.broadcast.emit('newQuestion', updatedQuestionJsonData );
-  }); 
+  });
+
+  socket.on('updateQuestion', function(questionJsonData) {
+  	var questionData = JSON.parse(questionJsonData);
+  	var existingQuestion = _(questions).find(function(question) {
+  		return question.id = questionData.id;
+  	});
+
+  	if(existingQuestion) {
+  		_.extend(existingQuestion, questionData);
+  	}
+  });
 });
 

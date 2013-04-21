@@ -24,6 +24,10 @@ window.App.factory('questionSync', function($rootScope, questions, Question) {
 				updatedQuestion = JSON.parse(updatedQuestionJson);
 				question.id = updatedQuestion.id;
 			});
+		},
+
+		questionUpdated: function(question) {
+			socket.emit('updateQuestion', angular.toJson(question));
 		}
 	};
 });
