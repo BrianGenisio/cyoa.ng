@@ -7,6 +7,10 @@ var app = connect()
     .listen(process.env.PORT || 3000);
 
 var io = require('socket.io').listen(app);
+io.configure(function () {
+  io.set("transports", ["xhr-polling"]);
+  io.set("polling duration", 10);
+});
 
 var questions = [];
 
