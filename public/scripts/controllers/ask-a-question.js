@@ -1,4 +1,4 @@
-window.App.controller('AskAQuestionCtrl', function($scope, user, questions, Question) {
+window.App.controller('AskAQuestionCtrl', function($scope, user, questions, questionSync, Question) {
 	$scope.user = user;
 	$scope.questions = questions;
 
@@ -10,5 +10,7 @@ window.App.controller('AskAQuestionCtrl', function($scope, user, questions, Ques
 
 		$scope.questions.push(newQuestion);
 		$scope.newQuestionText = '';
+
+		questionSync.questionAdded(newQuestion);
 	}
 });
